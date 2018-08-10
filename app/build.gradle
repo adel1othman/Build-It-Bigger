@@ -1,0 +1,43 @@
+apply plugin: 'com.android.application'
+
+android {
+    flavorDimensions "default"
+    compileSdkVersion 27
+    buildToolsVersion "27.0.3"
+
+    defaultConfig {
+        applicationId "com.adel.builditbigger"
+        minSdkVersion 15
+        targetSdkVersion 27
+        versionCode 1
+        versionName "1.0"
+        multiDexEnabled true
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    productFlavors {
+        free {
+            applicationId "com.adel.builditbigger.free"
+        }
+        paid {
+            applicationId "com.adel.builditbigger.paid"
+        }
+    }
+
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    // Added for AdMob
+    implementation project(":jokelib")
+    implementation project(":myandroidlibrary")
+    implementation project(path: ':backend', configuration: 'android-endpoints')
+    implementation 'com.android.support:appcompat-v7:27.1.1'
+    freeImplementation 'com.google.android.gms:play-services-ads:15.0.1'
+    implementation 'com.android.support:support-v4:27.1.1'
+}
