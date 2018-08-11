@@ -1,10 +1,7 @@
 package com.example.adel.builditbigger.backend;
 
-import com.example.JokeTelling;
+import com.example.adel.JokeTelling;
 
-/**
- * The object model for the data we are sending through endpoints
- */
 public class JokeBean {
 
     private JokeTelling jokeTelling;

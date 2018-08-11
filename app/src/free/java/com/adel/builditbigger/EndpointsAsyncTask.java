@@ -11,7 +11,6 @@ import android.widget.ProgressBar;
 
 import com.example.adel.myandroidlibrary.JokeDisplayActivity;
 import com.example.adel.builditbigger.backend.jokeApi.JokeApi;
-import com.example.adel.builditbigger.backend.jokeApi.model.JokeBean;
 import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.InterstitialAd;
@@ -50,7 +49,7 @@ class EndpointsAsyncTask extends AsyncTask<Pair<Context, String>, Void, String> 
             mJokeApi = builder.build();
         }
         try {
-            return mJokeApi.putJoke(new JokeBean()).execute().getJoke();
+            return mJokeApi.putJoke().execute().getJoke();
         } catch (IOException e) {
             return e.getMessage();
         }

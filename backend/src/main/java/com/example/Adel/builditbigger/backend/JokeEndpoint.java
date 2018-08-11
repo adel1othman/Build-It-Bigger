@@ -10,11 +10,6 @@ import com.google.api.server.spi.config.Api;
 import com.google.api.server.spi.config.ApiMethod;
 import com.google.api.server.spi.config.ApiNamespace;
 
-import javax.inject.Named;
-
-/**
- * An endpoint class we are exposing
- */
 @Api(
         name = "jokeApi",
         version = "v1",
@@ -24,8 +19,11 @@ import javax.inject.Named;
                 packagePath = ""))
 
 public class JokeEndpoint {
+
     @ApiMethod(name = "putJoke")
-    public JokeBean putJoke(JokeBean joke) {
+    public JokeBean putJoke() {
+        JokeBean joke = new JokeBean();
+        joke.getJoke();
         return joke;
     }
 }
