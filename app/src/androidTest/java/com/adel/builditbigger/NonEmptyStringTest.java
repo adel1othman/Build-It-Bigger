@@ -20,19 +20,16 @@ public class NonEmptyStringTest extends AndroidTestCase {
     public void test() {
         Log.v("NonEmptyStringTest", "Running NonEmptyStringTest test");
 
-        boolean gettingAnEx = false;
         String result;
         EndpointsAsyncTask endpointsAsyncTask = new EndpointsAsyncTask(appContext, null);
         endpointsAsyncTask.execute();
 
         try {
             result = endpointsAsyncTask.get();
-            Log.d(LOG_TAG, "Retrieved a non-empty string successfully: " + result);
         } catch (Exception e) {
-            gettingAnEx = true;
-            result = e.getMessage();
+            result = appContext.getString(R.string.failed);
         }
         Assert.assertNotNull(result);
-        Assert.assertTrue(result, !gettingAnEx);
+        Assert.assertNotEquals(result, appContext.getString(R.string.failed));
     }
 }
