@@ -12,6 +12,10 @@ android {
         versionCode 1
         versionName "1.0"
         multiDexEnabled true
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+    testOptions {
+        unitTests.returnDefaultValues = true
     }
     buildTypes {
         release {
@@ -40,4 +44,11 @@ dependencies {
     implementation 'com.android.support:appcompat-v7:27.1.1'
     freeImplementation 'com.google.android.gms:play-services-ads:15.0.1'
     implementation 'com.android.support:support-v4:27.1.1'
+
+    implementation 'com.android.support.test:runner:1.0.2'
+    implementation 'junit:junit:4.12'
+    testImplementation 'com.android.support.test:rules:1.0.2'
+    testImplementation 'com.android.support.test:monitor:1.0.2'
+    testImplementation 'com.android.support.test:runner:1.0.2'
+    testImplementation 'junit:junit:4.12'
 }
